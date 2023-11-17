@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Задание 48</title>
     <style>
-        .container{
+        .container {
             max-width: 800px;
             width: 100%;
             margin: 0 auto;
@@ -15,29 +15,33 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <ul>
-            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A</li>
-            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. B</li>
-            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. C</li>
-        </ul>
+<div class="container">
+    <ul>
+        <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A</li>
+        <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. B</li>
+        <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. C</li>
+    </ul>
 
-        <ul>
-            <li>Список 1</li>
-            <li>Список 2</li>
-            <li>Список 3</li>
-        </ul>
+    <ul>
+        <li>Список 1</li>
+        <li>Список 2</li>
+        <li>Список 3</li>
+    </ul>
 
-        <ul>
-            <li>Дело №1</li>
-            <li>Дело №2</li>
-            <li>Дело №3</li>
-        </ul>
+    <ul>
+        <li>Дело №1</li>
+        <li>Дело №2</li>
+        <li>Дело №3</li>
+    </ul>
 
-    </div>
+</div>
 
-    <script>
+<script>
+    const first = document.querySelector('ul li:first-child');
+    const list = document.querySelectorAll('ul li:first-child');
 
-    </script>
+    console.dir(first);
+    list.forEach(item => console.log(item));
+</script>
 </body>
 </html>
