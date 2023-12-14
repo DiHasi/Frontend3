@@ -44,7 +44,37 @@
         const list = document.querySelector('.list')
         const input = document.querySelector('.search__input')
 
+        let activeItem = null;
 
+        function buildList(wordsArray) {
+            list.innerHTML = '';
+            wordsArray.forEach(word => {
+                const li = document.createElement('li');
+                li.textContent = word;
+                list.appendChild(li);
+            });
+        }
+
+        buildList(words);
+
+        function search() {
+            const searchValue = input.value;
+            const filteredWords = words.filter(word => word.toLowerCase().includes(searchValue.toLowerCase()));
+            buildList(filteredWords);
+        }
+
+        document.querySelector('.search__btn').onclick = search;
+        document.querySelector('.search__clear').onclick = function() {
+            input.value = '';
+            buildList(words);
+        };
+        list.onclick = function(event) {
+            if (event.target.tagName === 'LI') {
+                if (activeItem) activeItem.classList.remove('list__element--active');
+                event.target.classList.add('list__element--active');
+                activeItem = event.target;
+            }
+        };
     </script>
 </body>
 </html>
