@@ -34,7 +34,21 @@
     </div>
 
     <script>
+        const buttonClick = document.querySelector('.js-button-click');
+        const buttonAdd = document.querySelector('.js-button-add');
+        const buttonRemove = document.querySelector('.js-button-remove');
 
+        const clickHandler = function() {
+            alert('CLICK!');
+        }
+
+        buttonAdd.addEventListener('click', function addClickEvent() {
+            buttonClick.addEventListener('click', clickHandler);
+        }, { once: true });
+
+        buttonRemove.addEventListener('click', function() {
+            buttonClick.removeEventListener('click', clickHandler);
+        });
     </script>
 </body>
 </html>
