@@ -64,7 +64,17 @@
         }
 
         websocket.onmessage = (event) => {
-            console.log(event)
+            console.log(event);
+
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('list__message', 'list--receive');
+
+            const date = new Date()
+            const formatDate = date.toLocaleString()
+
+            messageElement.textContent = `Получено: ${event.data} (${formatDate})`;
+
+            list.prepend(messageElement);
         };
 
         websocket.onopen = (event) => {
@@ -78,7 +88,16 @@
         };
 
         button.addEventListener('click', () => {
+            websocket.send(input.value)
+            const messageElement = document.createElement('div');
 
+            const date = new Date()
+            const formatDate = date.toLocaleString()
+
+            messageElement.classList.add('list__message', 'list--send');
+            messageElement.textContent = `Отправлено: ${input.value} (${formatDate})`;
+
+            list.prepend(messageElement);
         })
 
     </script>
