@@ -96,7 +96,66 @@
     </div>
 
     <script>
+        const jsInput = document.querySelector('.js-input');
+        const jsChange = document.querySelector('.js-change');
+        const jsBlur = document.querySelector('.js-blur');
+        const jsFocus = document.querySelector('.js-focus');
 
+        function logValue() {
+            console.log(this.value);
+        }
+
+        if(jsInput) {
+            jsInput.addEventListener('input', logValue);
+        }
+
+        if(jsChange) {
+            jsChange.addEventListener('change', logValue);
+        }
+
+        if(jsBlur) {
+            jsBlur.addEventListener('blur', logValue);
+        }
+
+        if(jsFocus) {
+            jsFocus.addEventListener('focus', logValue);
+        }
+
+
+        const jsCheckbox1 = document.querySelector('.js-checkbox-1');
+        const jsCheckbox2 = document.querySelector('.js-checkbox-2');
+        const jsRadio1 = document.querySelector('.js-radio-1');
+        const jsRadio2 = document.querySelector('.js-radio-2');
+
+        function logCheckedAndValue() {
+            console.log('Checked: ' + this.checked + ', Value: ' + this.value);
+        }
+
+        if(jsCheckbox1) {
+            jsCheckbox1.addEventListener('change', logCheckedAndValue);
+        }
+
+        if(jsCheckbox2) {
+            jsCheckbox2.addEventListener('change', logCheckedAndValue);
+        }
+
+        if(jsRadio1) {
+            jsRadio1.addEventListener('change', logCheckedAndValue);
+        }
+
+        if(jsRadio2) {
+            jsRadio2.addEventListener('change', logCheckedAndValue);
+        }
+
+        const jsSelect = document.querySelector('.js-select');
+
+        function logSelectDetails() {
+            console.log('Value: ' + this.value  + ', Options: ' + this.options + ', Selected Index: ' + this.selectedIndex);
+        }
+
+        if(jsSelect) {
+            jsSelect.addEventListener('change', logSelectDetails);
+        }
 
     </script>
 </body>
