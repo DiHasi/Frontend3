@@ -92,8 +92,12 @@
 
     <script>
 
-        document.querySelector('.form').addEventListener('submit', (e) => {
-
+        document.querySelector('.form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            let formData = new FormData(event.target);
+            let entries = formData.entries();
+            let formValues = Object.fromEntries(entries);
+            console.log(formValues);
         })
 
     </script>
