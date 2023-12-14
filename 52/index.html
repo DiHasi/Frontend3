@@ -105,6 +105,54 @@
             }
         ]
 
+        const wrappers = document.querySelector('.items');
+
+        lists.forEach(item => {
+            const newItem = document.createElement('div');
+            newItem.classList.add('item');
+
+            const itemBg = document.createElement('div');
+            itemBg.classList.add('item__bg');
+            newItem.appendChild(itemBg);
+
+            const itemBody = document.createElement('div');
+            itemBody.classList.add('item__body');
+
+            const itemName = document.createElement('h2');
+            itemName.classList.add('item__name');
+            itemName.textContent = item.name;
+            itemBody.appendChild(itemName);
+
+            const itemContent = document.createElement('p');
+            itemContent.classList.add('item__content');
+            itemContent.textContent = item.description;
+            itemBody.appendChild(itemContent);
+
+            const itemFooter = document.createElement('div');
+            itemFooter.classList.add('item__footer');
+            itemFooter.textContent = 'Read More';
+            itemBody.appendChild(itemFooter);
+
+            newItem.appendChild(itemBody);
+
+            wrappers.appendChild(newItem);
+        });
+
+        lists.forEach(item => {
+            const htmlString = `
+                <div class="item">
+                  <div class="item__bg"></div>
+                  <div class="item__body">
+                    <h2 class="item__name">${item.name}</h2>
+                    <p class="item__content">${item.description}</p>
+                    <div class="item__footer">Read More</div>
+                  </div>
+                </div>
+              `;
+
+            wrappers.insertAdjacentHTML('beforeend', htmlString);
+        });
+
     </script>
 </body>
 </html>
