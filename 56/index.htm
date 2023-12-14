@@ -52,6 +52,18 @@
 
     <script>
         let textSize = 16;
+        const listItems = document.querySelectorAll('.tasks li');
+
+        const textElement = document.querySelector('.text');
+
+        listItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                this.classList.toggle('complete');
+
+                textSize++;
+                textElement.style.fontSize = textSize + 'px';
+            });
+        });
     </script>
 </body>
 </html>
