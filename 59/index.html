@@ -63,11 +63,11 @@
             buildList(filteredWords);
         }
 
-        document.querySelector('.search__btn').onclick = search;
-        document.querySelector('.search__clear').onclick = function() {
+        document.querySelector('.search__btn').addEventListener('click', search);
+        document.querySelector('.search__clear').addEventListener('click', () => {
             input.value = '';
             buildList(words);
-        };
+        });
         list.onclick = function(event) {
             if (event.target.tagName === 'LI') {
                 if (activeItem) activeItem.classList.remove('list__element--active');
